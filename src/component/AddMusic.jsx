@@ -1,12 +1,18 @@
 import React from 'react'
 import { faker } from '@faker-js/faker';
+import { useDispatch } from 'react-redux';
+import { addSong } from '../store/slices/songSlice';
 
+//{onAddSong}
+const AddMusic = () => {
 
-const AddMusic = ({onAddSong}) => {
+  const dispatch = useDispatch();
   
   const addSongHandler=()=>{
     const randomSong = faker.music.songName();
-    onAddSong(randomSong)
+    //onAddSong(randomSong)
+    dispatch(addSong(randomSong));
+
   }
   return (
     <div>
